@@ -1,24 +1,24 @@
 # .github/workflows/frontend-ci.yml
-name: Frontend CI
+name: Client CI
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'frontend/**'
+      - 'client/**'
   pull_request:
     branches:
       - main
     paths:
-      - 'frontend/**'
+      - 'client/**'
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: frontend
+        working-directory: client
 
     steps:
       - name: Checkout repository
