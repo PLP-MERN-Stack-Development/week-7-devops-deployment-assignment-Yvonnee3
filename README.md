@@ -1,72 +1,118 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19957706&assignment_repo_type=AssignmentRepo)
 # Deployment and DevOps for MERN Applications
 
-This assignment focuses on deploying a full MERN stack application to production, implementing CI/CD pipelines, and setting up monitoring for your application.
+# MERN Task Manager – Week 7: Deployment and DevOps Essentials 🚀
 
-## Assignment Overview
+## Overview
 
-You will:
-1. Prepare your MERN application for production deployment
-2. Deploy the backend to a cloud platform
-3. Deploy the frontend to a static hosting service
-4. Set up CI/CD pipelines with GitHub Actions
-5. Implement monitoring and maintenance strategies
+This project is a full-stack MERN (MongoDB, Express, React, Node.js) Task Manager application, deployed to production with CI/CD pipelines, environment configuration, and monitoring.
 
-## Getting Started
+---
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week7-Assignment.md` file
-4. Use the provided templates and configuration files as a starting point
 
-## Files Included
+## Features
 
-- `Week7-Assignment.md`: Detailed assignment instructions
-- `.github/workflows/`: GitHub Actions workflow templates
-- `deployment/`: Deployment configuration files and scripts
-- `.env.example`: Example environment variable templates
-- `monitoring/`: Monitoring configuration examples
+- User authentication (register/login)
+- Add, complete, and delete tasks
+- Filter tasks (All, Active, Completed)
+- Responsive, modern UI with Tailwind CSS 4.1
+- Persistent tasks (localStorage or MongoDB)
+- Health check endpoint (`/api/health`)
+- Production-ready backend (secure headers, logging, error handling)
+- CI/CD with GitHub Actions
+- Monitoring and error tracking
 
-## Requirements
+---
 
-- A completed MERN stack application from previous weeks
-- Accounts on the following services:
-  - GitHub
-  - MongoDB Atlas
-  - Render, Railway, or Heroku (for backend)
-  - Vercel, Netlify, or GitHub Pages (for frontend)
-- Basic understanding of CI/CD concepts
+## 🛠️ Tech Stack
 
-## Deployment Platforms
+- **Frontend:** React, Vite, Tailwind CSS 4.1
+- **Backend:** Node.js, Express, MongoDB (Atlas)
+- **CI/CD:** GitHub Actions
+- **Hosting:** Vercel (frontend), Render/Railway/Heroku (backend)
+- **Monitoring:** Sentry, health checks
 
-### Backend Deployment Options
-- **Render**: Easy to use, free tier available
-- **Railway**: Developer-friendly, generous free tier
-- **Heroku**: Well-established, extensive documentation
+---
 
-### Frontend Deployment Options
-- **Vercel**: Optimized for React apps, easy integration
-- **Netlify**: Great for static sites, good CI/CD
-- **GitHub Pages**: Free, integrated with GitHub
+## 🚀 Deployment
 
-## CI/CD Pipeline
+### 1. Backend
 
-The assignment includes templates for setting up GitHub Actions workflows:
-- `frontend-ci.yml`: Tests and builds the React application
-- `backend-ci.yml`: Tests the Express.js backend
-- `frontend-cd.yml`: Deploys the frontend to your chosen platform
-- `backend-cd.yml`: Deploys the backend to your chosen platform
+- Deployed to:
+- Environment variables set via dashboard or `.env`:
+  ```
+  MONGODB_URI=your_mongodb_atlas_uri
+  JWT_SECRET=your_jwt_secret
+  ```
+- Continuous deployment from GitHub enabled
 
-## Submission
+### 2. Frontend
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+- Deployed to:
+- Environment variable in `.env`:
+  ```
+  VITE_API_URL=https://your-backend-url/api
+  ```
+- Continuous deployment from GitHub enabled
 
-1. Complete all deployment tasks
-2. Set up CI/CD pipelines with GitHub Actions
-3. Deploy both frontend and backend to production
-4. Document your deployment process in the README.md
-5. Include screenshots of your CI/CD pipeline in action
-6. Add URLs to your deployed applications
+---
+
+## ⚙️ CI/CD
+
+- **Lint, test, and build** on every push (see `.github/workflows/`)
+- **Auto-deploy** to production on main branch
+- **Rollback**: Redeploy previous commit from hosting dashboard if needed
+
+---
+
+## 🩺 Monitoring & Maintenance
+
+- **Health check:** `/api/health` returns uptime and status
+- **Error tracking:** Sentry integration (see `monitoring/sentry.example.js`)
+- **Uptime monitoring:** [UptimeRobot](https://uptimerobot.com/) or similar
+- **Performance:** Logging with `morgan`, resource monitoring on host
+- **Backups:** MongoDB Atlas automated backups
+
+---
+
+## 🖥️ Local Development
+
+1. **Clone the repo:**
+   ```sh
+   git clone https://github.com/your-username/your-repo.git
+   cd your-repo
+   ```
+
+2. **Backend:**
+   ```sh
+   cd backend
+   npm install
+   npm run dev
+   ```
+
+3. **Frontend:**
+   ```sh
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+4. **Environment Variables:**
+   - Copy `.env.example` to `.env` in both `backend` and `frontend` folders and fill in your values.
+
+---
+
+
+
+## 📄 Maintenance Plan
+
+- Regularly update dependencies (`npm update`)
+- Monitor uptime and errors (Sentry, health checks)
+- Schedule MongoDB backups
+- Document deployment and rollback steps
+
+---
+
 
 ## Resources
 
